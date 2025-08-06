@@ -1,139 +1,102 @@
+
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>金門四天三夜行程</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <title>我的旅遊足跡 - 入口網站</title>
+
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- 引入 Google Fonts (Inter & Noto Sans TC) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+
     <style>
+        /* 使用 Noto Sans TC 作為主要字體，英文則使用 Inter */
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f0f4f8;
-            color: #334155;
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-        .container {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 1.5rem;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        .header {
-            background-color: #3b82f6;
-            color: #ffffff;
-            padding: 1.5rem;
-            border-radius: 10px 10px 0 0;
-            text-align: center;
-        }
-        .day-card {
-            background-color: #f8fafc;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-        .location-link {
-            color: #2563eb;
-            text-decoration: none;
-        }
-        .location-link:hover {
-            text-decoration: underline;
-        }
-        .section-title {
-            color: #1e40af;
-            border-bottom: 2px solid #bfdbfe;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        .info-box {
-            background-color: #e0f2fe;
-            border-left: 5px solid #38bdf8;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
+        /* 當圖片加載失敗時的樣式 */
+        .image-placeholder {
+            background-color: #e2e8f0; /* gray-200 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4a5568; /* gray-600 */
+            font-weight: 500;
         }
     </style>
 </head>
-<body class="p-4">
-    <div class="container">
-        <div class="header">
-            <h1 class="text-3xl font-bold mb-2">金門四天三夜深度之旅</h1>
-            <p class="text-lg">體驗戰地風光與閩南文化</p>
-        </div>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
 
-        <div class="my-6 info-box">
-            <h2 class="text-xl font-semibold mb-2">重要資訊</h2>
-            <p><strong>住宿點：</strong>依山初晴 金城鎮珠山17-1號</p>
-            <p><strong>去程航班：</strong>8/7 07:20 - 08:25</p>
-            <p><strong>回程航班：</strong>8/10 12:00 - 13:00</p>
-        </div>
+    <!-- 主容器 -->
+    <div class="container mx-auto px-4 py-8 md:py-16">
 
-        <!-- Day 1 -->
-        <div class="day-card">
-            <h2 class="text-2xl font-semibold mb-4 section-title">第一天：8/7 (週三) 抵達與東金門探索</h2>
-            <ul class="list-disc pl-5 space-y-2">
-                <li>搭乘飛機前往金門。</li>
-                <li>抵達金門尚義機場，領取行李，租借交通工具。</li>
-                <li>金城鎮特色早餐 (例如：壽記廣東粥、永春廣東粥)。</li>
-                <li><a href="https://maps.app.goo.gl/p3hD2MEWcwGP8vyk6" target="_blank" class="location-link font-medium">瓊林聚落</a>：探索金門最具代表性的閩南傳統聚落，欣賞宗祠建築與風獅爺。</li>
-                <li><a href="https://maps.app.goo.gl/h1J2K3L4M5N6O7P8A" target="_blank" class="location-link font-medium">八二三戰史館</a>：了解八二三砲戰的歷史背景與影響。</li>
-                <li>午餐 (瓊林或沙美附近特色小吃，例如：長榮山西拌麵)。</li>
-                <li><a href="https://maps.app.goo.gl/UiZefLaFUuH3cSERA" target="_blank" class="location-link font-medium">沙美摩洛哥</a> (沙美老街)：體驗異國風情，感受殘破卻獨特的建築美學，並逛逛老街。</li>
-                <li><a href="https://maps.app.goo.gl/q9wX8yZ7a6b5c4d3e" target="_blank" class="location-link font-medium">馬山觀測所</a>：金門最靠近中國大陸的觀測所，可透過望遠鏡眺望對岸。</li>
-                <li>前往住宿點「依山初晴」辦理入住，稍作休息。</li>
-                <li>金城鎮晚餐 (例如：記德海鮮、高坑牛肉店)。</li>
-                <li>金城鎮自由活動，可逛街、品嚐宵夜。</li>
-            </ul>
-        </div>
+        <!-- 頁首標題 -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-indigo-600 dark:text-indigo-400">我的旅遊足跡</h1>
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">探索世界的每個角落，記錄下每一段難忘的旅程。</p>
+        </header>
 
-        <!-- Day 2 -->
-        <div class="day-card">
-            <h2 class="text-2xl font-semibold mb-4 section-title">第二天：8/8 (週四) 小金門烈嶼鄉深度遊 (12:00 - 18:00)</h2>
-            <ul class="list-disc pl-5 space-y-2">
-                <li>上午：金城鎮周邊景點 (例如：莒光樓、金門總兵署、模範街)，或在民宿享受悠閒早晨。</li>
-                <li>午餐 (水頭碼頭附近或金城鎮)。</li>
-                <li>前往水頭碼頭，搭乘渡輪前往小金門 (烈嶼鄉)。</li>
-                <li>抵達小金門九宮碼頭，租借交通工具 (機車或計程車)。</li>
-                <li><a href="https://maps.app.goo.gl/7e7nC3sB43vX7818A" target="_blank" class="location-link font-medium">湖井頭戰史館</a>：了解小金門的戰地歷史與對岸風光。</li>
-                <li><a href="https://maps.app.goo.gl/t6tE4tJpY3z8p9fG7" target="_blank" class="location-link font-medium">鐵漢堡與勇士堡</a>：探索地下坑道與軍事設施。</li>
-                <li><a href="https://maps.app.goo.gl/6j3uK5mX2Y3Z8p9fG7" target="_blank" class="location-link font-medium">沙溪堡</a>：欣賞海景與碉堡，感受寧靜的海岸線。</li>
-                <li><a href="https://maps.app.goo.gl/8e8oP7qR8sT9u0v1A" target="_blank" class="location-link font-medium">八達樓子</a> 或 烈嶼鄉文化館：進一步了解小金門的文化與歷史。</li>
-                <li>返回九宮碼頭。</li>
-                <li>搭乘渡輪返回大金門水頭碼頭。</li>
-                <li>金城鎮晚餐，自由活動。</li>
-            </ul>
-        </div>
+        <!-- 行程卡片網格 -->
+        <main>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
 
-        <!-- Day 3 -->
-        <div class="day-card">
-            <h2 class="text-2xl font-semibold mb-4 section-title">第三天：8/9 (週五) 西金門與文化體驗</h2>
-            <ul class="list-disc pl-5 space-y-2">
-                <li><a href="https://maps.app.goo.gl/rNS8T2iAF9BHemPg6" target="_blank" class="location-link font-medium">金門國家公園管理處</a>：了解金門的自然生態與人文歷史。</li>
-                <li><a href="https://maps.app.goo.gl/cW8cQ2yX5Z7b9dE2A" target="_blank" class="location-link font-medium">莒光樓</a>：金門地標建築，登高望遠，俯瞰金城鎮與廈門。</li>
-                <li>午餐 (金城鎮或水頭聚落附近)。</li>
-                <li><a href="https://maps.app.goo.gl/uR4dY7wX9Z1b3c4D6" target="_blank" class="location-link font-medium">水頭聚落與得月樓</a>：漫步閩南古厝群，欣賞中西合璧的洋樓建築。</li>
-                <li><a href="https://maps.app.goo.gl/aB1c2dE3fG4h5i6j8" target="_blank" class="location-link font-medium">古寧頭戰史館</a>：深入了解古寧頭戰役的歷史意義。</li>
-                <li><a href="https://maps.app.goo.gl/zX9y8w7v6u5t4r3s2" target="_blank" class="location-link font-medium">北山古洋樓</a>：感受戰火洗禮後的歷史痕跡。</li>
-                <li>金城鎮晚餐，自由活動，可安排購買伴手禮。</li>
-            </ul>
-        </div>
+                <!-- ===== 卡片 1: 泰國曼谷 ===== -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 ease-in-out">
+                    <img class="w-full h-56 object-cover object-center"
+                         src="https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=2070&auto=format&fit=crop"
+                         alt="泰國曼谷黎明寺"
+                         onerror="this.onerror=null; this.parentElement.innerHTML = '<div class=\'w-full h-56 image-placeholder\'>泰國曼谷</div>';">
 
-        <!-- Day 4 -->
-        <div class="day-card">
-            <h2 class="text-2xl font-semibold mb-4 section-title">第四天：8/10 (週五) 早餐與返程</h2>
-            <ul class="list-disc pl-5 space-y-2">
-                <li>享用金門特色早餐 (例如：燒餅、油條、豆漿)。</li>
-                <li>自由活動，可進行最後的伴手禮採買或前往附近小景點。</li>
-                <li>前往金門尚義機場。</li>
-                <li>搭乘飛機返回。</li>
-            </ul>
-        </div>
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">泰國曼谷之旅</h2>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">體驗微笑國度的熱情，參訪金碧輝煌的廟宇，享受道地的街頭美食與水上市場。</p>
+                        <a href="./Bangkok/index.html" class="inline-block bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition-colors duration-300">
+                            查看行程
+                        </a>
+                    </div>
+                </div>
+                <!-- ===== 卡片 1 結束 ===== -->
 
-        <div class="mt-6 text-center text-gray-600">
-            <p>祝您在金門有個愉快的旅程！</p>
-        </div>
+
+                <!-- ===== 卡片 2: 台灣金門 ===== -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 ease-in-out">
+                    <!-- 已更新圖片連結 -->
+                    <img class="w-full h-56 object-cover object-center"
+                         src="https://upload.wikimedia.org/wikipedia/commons/b/b4/%E5%89%8D%E6%B0%B4%E9%A0%AD%E9%BB%83%E8%BC%9D%E7%85%8C%E6%B4%8B%E6%A8%93%E5%8F%8A%E5%BE%97%E6%9C%88%E6%A8%93.jpg"
+                         alt="台灣金門山后民俗文化村"
+                         onerror="this.onerror=null; this.parentElement.innerHTML = '<div class=\'w-full h-56 image-placeholder\'>台灣金門</div>';">
+
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">台灣金門之旅</h2>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">走進一座活的歷史博物館，探索戰地史蹟、傳統閩南聚落與獨特的自然生態。</p>
+                        <a href="./GoldenGate/index.html" class="inline-block bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition-colors duration-300">
+                            查看行程
+                        </a>
+                    </div>
+                </div>
+                <!-- ===== 卡片 2 結束 ===== -->
+
+            </div>
+        </main>
+
+        <!-- 頁尾 -->
+        <footer class="text-center mt-16">
+            <p class="text-gray-500 dark:text-gray-400">&copy; <span id="year"></span> 我的旅遊足跡. All Rights Reserved.</p>
+        </footer>
+
     </div>
+
+    <script>
+        // 自動更新頁尾的年份
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
 </body>
 </html>
