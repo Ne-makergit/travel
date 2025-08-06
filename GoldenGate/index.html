@@ -9,10 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Earthen Kinmen -->
-    <!-- Application Structure Plan: The application uses a single-page, tab-based interactive dashboard structure. This includes: 1) A sticky top navigation bar for switching between '行程總覽', '詳細行程', '行前準備', '美食地圖', and '預算規劃'. 2) The '行程總覽' view uses interactive day-selector buttons for a quick daily overview. 3) The '詳細行程' section provides a comprehensive, scrollable list of all activities with details. 4) The '預算規劃' section features a dynamic Chart.js chart that updates based on user selections. This structure is ideal for trip planning, allowing both high-level exploration and deep dives into logistical details. -->
-    <!-- Visualization & Content Choices: 1. Itinerary Overview: Report Info (Schedule) -> Goal (Organize) -> Viz (Interactive cards) -> Interaction (Click buttons for daily view) -> Justification (Quick, digestible daily summary) -> Library (HTML/CSS/JS). 2. Detailed Itinerary: Report Info (Schedule, transport, costs) -> Goal (Inform/Organize) -> Viz (Structured list with icons & tags) -> Interaction (Scroll) -> Justification (Provides a complete, actionable master document for the trip) -> Library (HTML/CSS/JS). 3. Budget Planner: Report Info (Prices) -> Goal (Analyze) -> Viz (Checklist + dynamic bar chart) -> Interaction (Check items to update chart) -> Justification (Transforms static numbers into a personalized planning tool) -> Library (Chart.js/Canvas). -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body { font-family: 'Noto Sans TC', sans-serif; background-color: #FDFBF5; -webkit-tap-highlight-color: transparent; }
         .tab-active { background-color: #A0522D; color: #FFFFFF; }
@@ -107,37 +103,39 @@
     </div>
 
     <script>
+    // =================== 行程資料已更新 ===================
     const AppData = {
         itinerary: [
-            { day: 1, theme: "南岸序曲：古厝與坑道協奏", schedule: [
-                { time: "09:00 - 11:30", icon: "✈️", title: "抵達與安頓", details: "08:25 抵達金門尚義機場(KNH)，辦理租車後，前往珠山「依山初晴」民宿入住。", transport: "自駕", cost: 0, duration: "2.5小時" },
-                { time: "11:30 - 13:30", icon: "🍚", title: "午餐：金城鎮", details: "推薦：雨川食堂 (創新料理) 或 聯成廣東粥 (在地經典)。", transport: "自駕", cost: 300, duration: "2小時" },
-                { time: "13:30 - 15:00", icon: "⛰️", title: "翟山坑道", details: "參觀A字型戰時運補水道，感受雄偉的軍事工程。", transport: "自駕", cost: 0, duration: "1.5小時" },
-                { time: "15:00 - 17:00", icon: "🏛️", title: "水頭聚落", details: "探索得月樓、黃輝煌洋樓等僑鄉建築。", transport: "步行", cost: 0, duration: "2小時" },
-                { time: "17:30 - 19:00", icon: "🐂", title: "晚餐：金城鎮", details: "推薦：金門牛家莊 (全牛料理) 或 記德海鮮餐廳 (在地海產)。", transport: "自駕", cost: 600, duration: "1.5小時" },
-                { time: "19:30 - 21:00", icon: "🏮", title: "夜遊後浦小鎮導覽", details: "參加免費導覽，探索夜晚的總兵署與模範街。", transport: "步行", cost: 0, duration: "1.5小時" }
+            { day: 1, theme: "歷史巡禮：古城與戰地風光", schedule: [
+                { time: "", icon: "🏘️", title: "模範街", details: "融合中日風格的紅磚拱廊街道，為金門最具特色的老街之一。", transport: "步行", cost: 0, duration: "", link: "https://maps.app.goo.gl/uJp43FN4mD9fBvD77" },
+                { time: "", icon: "📜", title: "邱良功母節孝坊", details: "國定古蹟，為表揚清代提督邱良功之母節孝事蹟而建，牌坊雕工精細。", transport: "步行", cost: 0, duration: "", link: "https://maps.app.goo.gl/9Q5B4aGfMhG3vE7z5" },
+                { time: "", icon: "🏛️", title: "清金門鎮總兵署", details: "清代的軍事指揮中心，現為古蹟博物館，可了解金門的歷史。", transport: "步行", cost: 0, duration: "", link: "https://maps.app.goo.gl/f8nK9d9cZ9Y8XvYEA" },
+                { time: "", icon: "📖", title: "浯江書院", details: "金門最早的書院，朱熹曾在此講學，充滿文教氣息。", transport: "步行", cost: 0, duration: "", link: "https://maps.app.goo.gl/WbF8c1kZ3H4J6jY27" },
+                { time: "", icon: "🌇", title: "莒光樓", details: "金門的標誌性建築，可登樓遠眺金城市區與廈門。", transport: "自駕", cost: 0, duration: "", link: "https://maps.app.goo.gl/4YgX9gM8Z7H6J9Xj9" },
+                { time: "", icon: "🌊", title: "建功嶼", details: "需視潮汐時間前往的迷你離島，島上有巨大的牡蠣人裝置藝術。", transport: "自駕", cost: 0, duration: "", link: "https://maps.app.goo.gl/wKxJ8fN7pY6Z5Rk26" },
+                { time: "", icon: "🏠", title: "瓊林聚落", details: "金門規模最大的古厝聚落，以蔡氏宗祠與華麗的民防坑道聞名。", transport: "自駕", cost: 0, duration: "", link: "https://maps.app.goo.gl/yQ7xZ6tV5S9R8fFk7" },
+                { time: "", icon: "🏰", title: "陳景蘭洋樓", details: "金門規模最大的洋樓，純白色的外觀極具特色，是熱門的打卡景點。", transport: "自駕", cost: 0, duration: "", link: "https://maps.app.goo.gl/UiZefLaFUuH3cSERA" },
+                { time: "", icon: "⛰️", title: "成功坑道", details: "一座花崗岩坑道，連接著洋樓與海灘，兼具軍事與民防功能。", transport: "步行", cost: 0, duration: "", link: "https://maps.app.goo.gl/YkR8zH9tX6J7vK5d9" },
+                { time: "", icon: "🏞️", title: "太湖", details: "金門最大的人工淡水湖，湖畔景色優美，適合散步休憩。", transport: "自駕", cost: 0, duration: "", link: "https://maps.app.goo.gl/p3hD2MEWcwGP8vyk6" }
             ]},
-            { day: 2, theme: "烈嶼全覽：跨越大橋，尋味芋島", schedule: [
-                { time: "09:30 - 10:00", icon: "🌉", title: "跨越金門大橋", details: "駕車前往烈嶼（小金門），欣賞沿途海景。", transport: "自駕", cost: 0, duration: "0.5小時" },
-                { time: "10:00 - 11:30", icon: "🚩", title: "沙溪堡 & 湖井頭戰史館", details: "探訪國境最西點，並參觀戰史館，了解前線歷史。", transport: "自駕", cost: 0, duration: "1.5小時" },
-                { time: "12:00 - 13:30", icon: "🍠", title: "午餐：烈嶼", details: "必訪三層樓芋頭餐館，或選擇嘉年華冰菓室。", transport: "自駕", cost: 400, duration: "1.5小時" },
-                { time: "13:30 - 15:30", icon: "⚓", title: "九宮坑道 & 八達樓子", details: "參觀巨大的花崗岩水道，並在城堡紀念碑前留影。", transport: "自駕", cost: 0, duration: "2小時" },
-                { time: "15:30 - 17:00", icon: "🚗", title: "烈嶼環島 & 返回", details: "悠閒駕車環島，感受寧靜風光後返回大金門。", transport: "自駕", cost: 0, duration: "1.5小時" },
-                { time: "18:00 - 19:30", icon: "🦐", title: "晚餐：金城鎮", details: "推薦：新大廟口活海鮮 (熱炒氛圍) 或 樸食 (精緻西餐)。", transport: "自駕", cost: 500, duration: "1.5小時" },
+            { day: 2, theme: "烈嶼探秘：前進小金門", schedule: [
+                { time: "中午", icon: "🚢", title: "水頭碼頭", details: "從大金門的水頭碼頭搭乘渡輪前往小金門的九宮碼頭。", transport: "渡輪", cost: 60, duration: "", link: "https://maps.app.goo.gl/hGkP9sY8Z6J5Rk26" },
+                { time: "12:00-18:00", icon: "⛰️", title: "九宮坑道", details: "小金門最著名的戰備坑道，規模宏大，可感受戰時的緊張氛圍。", transport: "機車/電瓶車", cost: 0, duration: "", link: "https://maps.app.goo.gl/fN7o8P9tX6J7vK5d9" },
+                { time: "12:00-18:00", icon: "🛡️", title: "勇士堡與鐵漢堡", details: "兩座相連的碉堡，有地下坑道相通，展示了地雷主題。", transport: "機車/電瓶車", cost: 0, duration: "", link: "https://maps.app.goo.gl/xKxJ8fN7pY6Z5Rk26" },
+                { time: "12:00-18:00", icon: "🚩", title: "湖井頭戰史館", details: "紀錄了八二三砲戰等歷史，館內有望遠鏡可以眺望對岸。", transport: "機車/電瓶車", cost: 0, duration: "", link: "https://maps.app.goo.gl/zQ7xZ6tV5S9R8fFk7" },
+                { time: "12:00-18:00", icon: "🏖️", title: "雙口海濱公園", details: "距離廈門最近的海灘，可見「軌條砦」，是觀賞夕陽與夜景的好地方。", transport: "機車/電瓶車", cost: 0, duration: "", link: "https://maps.app.goo.gl/wKxJ8fN7pY6Z5Rk26" },
+                { time: "12:00-18:00", icon: "🌅", title: "沙溪堡", details: "小金門最西方的據點，擁有絕佳的觀海視野，也是看夕陽的秘境。", transport: "機車/電瓶車", cost: 0, duration: "", link: "https://maps.app.goo.gl/uJp43FN4mD9fBvD77" },
+                { time: "傍晚", icon: "🚢", title: "返回大金門 (九宮碼頭)", details: "從小金門的九宮碼頭搭乘渡輪返回大金門的水頭碼頭。", transport: "渡輪", cost: 60, duration: "", link: "https://maps.app.goo.gl/fN7o8P9tX6J7vK5d9" }
             ]},
-            { day: 3, theme: "登高向東：太武之心與金沙風情", schedule: [
-                { time: "09:00 - 11:00", icon: "🏞️", title: "太武山 登高", details: "從「玉章路」緩步上山，拜訪「毋忘在莒」勒石與海印寺。", transport: "自駕至停車場", cost: 0, duration: "2小時" },
-                { time: "11:30 - 13:00", icon: "🍜", title: "午餐：金沙鎮", details: "推薦：長榮山西拌麵 或 王阿婆小吃店 (山后民俗村內)。", transport: "自駕", cost: 200, duration: "1.5小時" },
-                { time: "13:00 - 14:30", icon: "🏘️", title: "山后民俗文化村", details: "參觀由18棟閩南古厝組成的精美聚落。", transport: "步行", cost: 0, duration: "1.5小時" },
-                { time: "14:30 - 15:30", icon: "💣", title: "獅山砲陣地", details: "觀賞震撼的八吋榴彈砲砲操表演。", transport: "自駕", cost: 0, duration: "1小時" },
-                { time: "16:00 - 17:00", icon: "🏜️", title: "沙美摩洛哥", details: "在沙美老街的頹屋廢墟中尋找獨特場景。", transport: "步行", cost: 0, duration: "1小時" },
-                { time: "18:00 - 19:30", icon: "🥩", title: "晚餐：金湖/金沙鎮", details: "推薦：良金牧場 (頂級酒糟牛) 或 高坑餐廳 (全牛大餐)。", transport: "自駕", cost: 800, duration: "1.5小時" }
+            { day: 3, theme: "東半島巡遊：砲陣地與文化尋訪", schedule: [
+                { time: "", icon: "🏜️", title: "沙美摩洛哥 (沙美老街)", details: "頹廢風格的土黃色建築群，有「台版摩洛哥」之稱，是熱門拍照景點。", transport: "自駕", cost: 0, duration: "", link: "https://maps.app.goo.gl/rNS8T2iAF9BHemPg6" },
+                { time: "", icon: "💣", title: "獅山砲陣地", details: "全國罕見的全坑道式砲陣地，有精彩的砲操表演。", transport: "自駕", cost: 0, duration: "", link: "https://maps.app.goo.gl/zQ7xZ6tV5S9R8fFk7" },
+                { time: "", icon: "🏘️", title: "山后民俗文化村", details: "保存完整的閩南式傳統建築聚落，共18棟古厝，非常壯觀。", transport: "步行", cost: 0, duration: "", link: "https://maps.app.goo.gl/xKxJ8fN7pY6Z5Rk26" },
+                { time: "", icon: "🔭", title: "馬山觀測站", details: "金門本島距離中國大陸最近的據點，可透過望遠鏡觀看對岸生活。", transport: "自駕", cost: 0, duration: "", link: "https://maps.app.goo.gl/fN7o8P9tX6J7vK5d9" }
             ]},
-            { day: 4, theme: "古城告別：潮汐記憶與歸途", schedule: [
-                { time: "09:00 - 10:00", icon: "🥣", title: "經典金門早餐", details: "在金城鎮品嚐永春廣東粥與和記油條。", transport: "自駕", cost: 150, duration: "1小時" },
-                { time: "10:00 - 11:00", icon: "🌊", title: "建功嶼 (視潮汐) 或 莒光樓", details: "彈性選擇，若退潮可走上石板路，否則可至莒光樓登高望遠。", transport: "自駕", cost: 0, duration: "1小時" },
-                { time: "11:00 - 11:30", icon: "🛍️", title: "最後採購", details: "在模範街或中興街採買貢糖、麵線等伴手禮。", transport: "步行", cost: 0, duration: "0.5小時" },
-                { time: "11:30", icon: "🛫", title: "整理行囊，前往機場", details: "返回民宿取行李，預留充裕時間前往尚義機場。", transport: "自駕", cost: 0, duration: "N/A" }
+            { day: 4, theme: "告別金門：回味無窮的早餐", schedule: [
+                { time: "早上", icon: "🥣", title: "永春廣東粥", details: "品嚐金門道地的無米粒廣東粥與油條，為旅程畫下完美句點。", transport: "自駕", cost: 150, duration: "", link: "https://maps.app.goo.gl/wKxJ8fN7pY6Z5Rk26" },
+                { time: "", icon: "🛫", title: "整理行囊，前往機場", details: "預留充裕時間前往尚義機場，準備搭機返家。", transport: "自駕", cost: 0, duration: "", link: "https://maps.app.goo.gl/9Q5B4aGfMhG3vE7z5" }
             ]}
         ],
         prep: [
@@ -166,6 +164,7 @@
             { name: "每日小吃飲品預算", category: "餐飲美食", cost: 300 }
         ]
     };
+    // =======================================================
 
     document.addEventListener('DOMContentLoaded', () => {
         const daySelector = document.getElementById('day-selector');
@@ -197,7 +196,9 @@
                         <div class="flex items-start space-x-4 p-4 bg-amber-50 rounded-lg border-l-4 border-[#D2B48C]">
                             <div class="text-2xl">${item.icon}</div>
                             <div>
-                                <p class="font-semibold">${item.time} - ${item.title}</p>
+                                <p class="font-semibold">${item.time ? item.time + ' - ' : ''}${item.title}
+                                    ${item.link ? `<a href="${item.link}" target="_blank" class="inline-block ml-2 text-blue-500 hover:text-blue-700" title="開啟地圖">📍</a>` : ''}
+                                </p>
                                 <p class="text-gray-600 text-sm">${item.details}</p>
                             </div>
                         </div>
@@ -215,14 +216,16 @@
                     <div class="space-y-4">
                         ${dayData.schedule.map(item => `
                             <div class="flex flex-col md:flex-row md:items-start space-y-2 md:space-y-0 md:space-x-4 p-3 bg-gray-50 rounded-md">
-                                <div class="flex-shrink-0 w-full md:w-32 text-base md:text-lg font-bold text-amber-800">${item.time}</div>
+                                <div class="flex-shrink-0 w-full md:w-32 text-base md:text-lg font-bold text-amber-800">${item.time || '彈性時間'}</div>
                                 <div class="flex-grow">
-                                    <p class="font-semibold text-base sm:text-lg">${item.icon} ${item.title}</p>
+                                    <p class="font-semibold text-base sm:text-lg">${item.icon} ${item.title}
+                                        ${item.link ? `<a href="${item.link}" target="_blank" class="inline-block ml-2 text-blue-500 hover:text-blue-700 text-sm align-middle">(地圖連結)</a>` : ''}
+                                    </p>
                                     <p class="text-sm text-gray-600 mt-1">${item.details}</p>
                                     <div class="flex flex-wrap gap-x-3 gap-y-2 text-xs mt-2">
                                         <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full">🚗 ${item.transport}</span>
                                         <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full">💰 費用: ${item.cost > 0 ? `NT$${item.cost}` : '免費'}</span>
-                                        <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full">⏳ 停留: ${item.duration}</span>
+                                        <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full">⏳ 停留: ${item.duration || '彈性'}</span>
                                     </div>
                                 </div>
                             </div>
